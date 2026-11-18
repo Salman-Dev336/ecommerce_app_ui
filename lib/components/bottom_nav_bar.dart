@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+
+class MyBottomNavBar extends StatelessWidget {
+  const MyBottomNavBar({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: GNav(
+        color: Colors.grey[600],
+        activeColor: Colors.grey[900],
+        tabActiveBorder: Border.all(color: Colors.white),
+        tabBackgroundColor: Colors.grey.shade100,
+        tabs: const [
+        GButton(icon:Icons.home,
+        text: 'Home',
+          ),
+
+        GButton(icon:Icons.shopping_bag_outlined,
+        text: 'Cart',
+          ),
+
+        ],
+      ),
+    );
+  }
+}

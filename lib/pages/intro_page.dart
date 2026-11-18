@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -11,6 +12,7 @@ class IntroPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //logo
               Image.asset('lib/images/image.png',
@@ -45,9 +47,11 @@ class IntroPage extends StatelessWidget {
               //button for start now
 
               GestureDetector(
-                onTap: () {
-                  
-                },
+                onTap: () => Navigator.push(
+                  context, MaterialPageRoute(
+                    builder: (context)=>HomePage(),
+                    ),
+                  ),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Colors.grey[900],
