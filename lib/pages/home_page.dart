@@ -72,6 +72,45 @@ class _HomePageState extends State<HomePage> {
               color: Colors.white,
               ),
               ),
+
+            const Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: ListTile(
+                  leading: Icon(Icons.home,
+                  color: Colors.white,
+                  ),
+                  title: Text('Home',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),),
+                ),
+              ),
+
+                const Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: ListTile(
+                  leading: Icon(Icons.info,
+                  color: Colors.white,
+                  ),
+                  title: Text('About',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),),
+                ),
+              ),
+
+            const Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: ListTile(
+                  leading: Icon(Icons.contact_page,
+                  color: Colors.white,
+                  ),
+                  title: Text('Contact Us',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),),
+                ),
+              ),
           ],
         ),
       ),
