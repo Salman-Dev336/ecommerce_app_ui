@@ -50,10 +50,13 @@ class _HomePageState extends State<HomePage> {
           onPressed: (){
           Scaffold.of(context).openDrawer();
           },
-          icon: Icon(Icons.menu,
-          color: Colors.black,
-          
-            ),
+          icon: Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Icon(Icons.menu,
+            color: Colors.black,
+            
+              ),
+          ),
           ),
         ),
       ),
@@ -65,9 +68,11 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         backgroundColor: Colors.grey[800],
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //logo
-            DrawerHeader(
+            Column(
+              children: [
+                 DrawerHeader(
               child: Image.asset('lib/images/logo.png',
               color: Colors.white,
               ),
@@ -106,6 +111,20 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   ),
                   title: Text('Contact Us',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),),
+                ),
+              ),
+              ],
+            ),
+              const Padding(
+                padding: const EdgeInsets.only(left: 30.0, bottom: 20.0),
+                child: ListTile(
+                  leading: Icon(Icons.logout,
+                  color: Colors.white,
+                  ),
+                  title: Text('Log Out',
                   style: TextStyle(
                     color: Colors.white,
                   ),),
