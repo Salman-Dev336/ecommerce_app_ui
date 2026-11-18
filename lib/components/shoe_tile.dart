@@ -2,8 +2,10 @@ import 'package:ecommerce_app_ui/models/shoe.dart';
 import 'package:flutter/material.dart';
 
 class ShoeTile extends StatelessWidget {
+
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +26,17 @@ class ShoeTile extends StatelessWidget {
           ),
 
           //description
-          Text(shoe.description, style: TextStyle(color: Colors.grey[600])),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Text(shoe.description, style: TextStyle(color: Colors.grey[600])),
+          ),
 
           //price and details
           Padding(
-            padding: const EdgeInsets.only(left: 10,),
+            padding: const EdgeInsets.only(left: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,16 +63,19 @@ class ShoeTile extends StatelessWidget {
                 ),
             
                 //add to cart button
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16),
+                GestureDetector(
+                  onTap:onTap,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        bottomRight: Radius.circular(16),
+                      ),
                     ),
+                    child: Icon(Icons.add, color: Colors.white),
                   ),
-                  child: Icon(Icons.add, color: Colors.white),
                 ),
               ],
             ),
