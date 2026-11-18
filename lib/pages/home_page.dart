@@ -1,7 +1,11 @@
 import 'package:ecommerce_app_ui/components/bottom_nav_bar.dart';
+import 'package:ecommerce_app_ui/pages/cart_page.dart';
+import 'package:ecommerce_app_ui/pages/shop_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+
+
   const HomePage({super.key});
 
   @override
@@ -9,11 +13,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  //is slected index to control the bottom nav bar
+  int _selectedIndex = 0;
+
+  //method to update the selected index
+  void navigateBottomBar(int index){
+    setState(() {
+      _selectedIndex = index;
+
+    });
+  }
+
+  //pages to display 
+
+  final List<Widget> _pages = [
+    //ShopPage
+    const ShopPage(),
+
+    //CartPage
+    const CartPage(),
+
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      bottomNavigationBar: MyBottomNavBar(),
+      bottomNavigationBar: MyBottomNavBar(
+        onTabChange:(index) => navigateBottomBar(index),
+      ),
+      body: _pages[_selectedIndex],
         );
   }
 }
