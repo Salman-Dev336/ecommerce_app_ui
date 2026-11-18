@@ -42,8 +42,38 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Builder(
+          builder: (context)=> IconButton(
+          onPressed: (){
+          Scaffold.of(context).openDrawer();
+          },
+          icon: Icon(Icons.menu,
+          color: Colors.black,
+          
+            ),
+          ),
+        ),
+      ),
+
       bottomNavigationBar: MyBottomNavBar(
         onTabChange:(index) => navigateBottomBar(index),
+      ),
+
+      drawer: Drawer(
+        backgroundColor: Colors.grey[800],
+        child: Column(
+          children: [
+            //logo
+            DrawerHeader(
+              child: Image.asset('lib/images/logo.png',
+              color: Colors.white,
+              ),
+              ),
+          ],
+        ),
       ),
       body: _pages[_selectedIndex],
         );
